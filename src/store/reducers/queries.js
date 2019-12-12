@@ -1,39 +1,37 @@
 import {
   DOWNLOAD_QUERIES_CSV_FAILURE,
-  DOWNLOAD_QUERIES_CSV_REQUEST, DOWNLOAD_QUERIES_CSV_SUCCESS,
+  DOWNLOAD_QUERIES_CSV_REQUEST, DOWNLOAD_QUERIES_CSV_SUCCESS
 } from "../actions/actionTypes";
 
 function createInitialState() {
   return {
     isLoading: false,
-    data: [],
+    list: [],
+    roles: [],
     downloadError: null
   }
 }
 
 const initialState = createInitialState();
 
+const handlers = {
+  [DOWNLOAD_QUERIES_CSV_REQUEST]: (state) => ({...state, isLoading: true}),
+  [DOWNLOAD_QUERIES_CSV_FAILURE]: (state, action) => ({
+    ...state,
+    isLoading: false,
+    downloadError: action.error
+  }),
+  [DOWNLOAD_QUERIES_CSV_SUCCESS]: (state, action) => ({
+    ...state,
+    list: action.data,
+    roles: action.roles,
+    isLoading: false,
+    downloadError: null
+  }),
+  DEFAULT: state => state
+};
+
 export default function queriesReducer(state = initialState, action) {
-  switch (action.type) {
-    case DOWNLOAD_QUERIES_CSV_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case DOWNLOAD_QUERIES_CSV_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        downloadError: action.error
-      };
-    case DOWNLOAD_QUERIES_CSV_SUCCESS:
-      return {
-        ...state,
-        data: action.data,
-        isLoading: false,
-        downloadError: false,
-      };
-    default:
-      return state
-  }
+  const handler = handlers[action.type] || handlers.DEFAULT;
+  return handler(state, action);
 }

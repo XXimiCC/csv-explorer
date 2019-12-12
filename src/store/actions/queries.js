@@ -1,5 +1,10 @@
-import {DOWNLOAD_QUERIES_CSV_FAILURE, DOWNLOAD_QUERIES_CSV_REQUEST, DOWNLOAD_QUERIES_CSV_SUCCESS} from "./actionTypes";
+import {
+  DOWNLOAD_QUERIES_CSV_FAILURE,
+  DOWNLOAD_QUERIES_CSV_REQUEST,
+  DOWNLOAD_QUERIES_CSV_SUCCESS,
+} from "./actionTypes";
 import {downloadAndParseCSV} from "../../utils";
+import * as _ from 'lodash';
 
 export function downloadQueriesCSV(url) {
   return async (dispatch, getState) => {
@@ -12,7 +17,8 @@ export function downloadQueriesCSV(url) {
 
       dispatch({
         type: DOWNLOAD_QUERIES_CSV_SUCCESS,
-        data
+        data,
+        roles: collectRoles(data)
       });
     } catch (e) {
       dispatch({
@@ -22,4 +28,11 @@ export function downloadQueriesCSV(url) {
       console.log('downloadQueriesCSV error:', e);
     }
   }
+}
+
+function collectRoles(queries) {
+  return _.compact(
+         _.uniq(
+         _.flatMap(
+         _.map(queries, 'role'))));
 }

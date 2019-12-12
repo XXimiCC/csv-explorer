@@ -6,8 +6,6 @@ import {connect} from "react-redux";
 // import css from './SettingsForm.module.scss'
 
 const SettingsForm = ({downloadUrl, saveNewDownloadUrl}) => {
-  console.log(downloadUrl);
-
   const formik = useFormik({
     initialValues: {
       url: downloadUrl
