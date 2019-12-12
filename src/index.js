@@ -11,9 +11,10 @@ import {BrowserRouter} from "react-router-dom";
 import './config';
 import {store} from './store';
 
+
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>
