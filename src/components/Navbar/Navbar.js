@@ -7,7 +7,7 @@ class Navbar extends Component {
     return (
       <div className={`${css.NavbarWrapper} mb-5`}>
         <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand" href="/">CSV Explorer</a>
+          <NavLink to="/" exact className="navbar-brand">CSV Explorer</NavLink>
           <button className="navbar-toggler"
                   type="button"
                   data-toggle="collapse"
