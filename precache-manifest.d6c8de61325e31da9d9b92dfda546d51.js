@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b7111d7ea511f6650933d1844cbe429",
+    "revision": "6ba7d7071bc2b5d526604b653deff77d",
     "url": "/csv-explorer/index.html"
   },
   {
-    "revision": "a4ae025ef74b382a6e85",
+    "revision": "365dceb1ae23d7adb82a",
     "url": "/csv-explorer/static/css/main.d4052cf6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/csv-explorer/static/js/2.95617291.chunk.js.LICENSE"
   },
   {
-    "revision": "a4ae025ef74b382a6e85",
-    "url": "/csv-explorer/static/js/main.5aa7001a.chunk.js"
+    "revision": "365dceb1ae23d7adb82a",
+    "url": "/csv-explorer/static/js/main.b887d820.chunk.js"
   },
   {
     "revision": "7a5898b76903a0e767c9",
