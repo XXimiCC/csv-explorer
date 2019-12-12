@@ -2,6 +2,7 @@ import React, {createRef, useEffect} from 'react';
 import * as $ from 'jquery';
 import Modal from "../Modal/Modal";
 import JSONFormatter from 'json-formatter-js';
+import * as Proptypes from "prop-types";
 
 const JSONShowerModal = ({json, ...props}) => {
   const modalBodyRef = createRef();
@@ -28,6 +29,10 @@ const JSONShowerModal = ({json, ...props}) => {
     </Modal>
 
   );
+};
+
+JSONShowerModal.propTypes = {
+  json: Proptypes.string.isRequired
 };
 
 export default JSONShowerModal;

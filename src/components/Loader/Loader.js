@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import css from './Loader.module.scss'
 
 const Loader = (props) => {
@@ -32,6 +33,10 @@ const Loader = (props) => {
     document.getElementById('modal-root')
   );
 
+};
+
+Loader.propTypes = {
+  show: PropTypes.bool
 };
 
 export default Loader;

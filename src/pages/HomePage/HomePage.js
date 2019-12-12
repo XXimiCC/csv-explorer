@@ -103,7 +103,7 @@ class HomePage extends React.Component {
         {isLoading && <Loader />}
         <div className="d-flex justify-content-between d-flex align-items-center mb-3">
           <h3 className={'m-0'}>CSV Data</h3>
-          <button className={'btn btn-primary'} onClick={() => downloadQueriesCSV()}>Download CSV</button>
+          <button className={'btn btn-primary'} onClick={_.debounce(() => downloadQueriesCSV(), 250)}>Download CSV</button>
         </div>
         {downloadError && renderError()}
         {isShowList && renderFilters}

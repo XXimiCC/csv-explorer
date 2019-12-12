@@ -8,6 +8,7 @@ function createInitialState() {
     isLoading: false,
     list: [],
     roles: [],
+    changes: [],
     downloadError: null
   }
 }
@@ -24,6 +25,7 @@ const handlers = {
   [DOWNLOAD_QUERIES_CSV_SUCCESS]: (state, action) => ({
     ...state,
     list: action.data,
+    changes: action.changes,
     roles: action.roles,
     isLoading: false,
     downloadError: null

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import JSONShowerModal from "../JSONShowerModal/JSONShowerModal";
+import PropTypes from "prop-types";
 // import css from './QueriesTable.module.scss'
 
 const QueriesTable = ({data}) => {
@@ -60,6 +61,16 @@ const QueriesTable = ({data}) => {
       </table>
     </>
   );
+};
+
+QueriesTable.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    request: PropTypes.string,
+    description: PropTypes.string,
+    parameters: PropTypes.string,
+    parameters_update: PropTypes.string,
+    role: PropTypes.array,
+  }))
 };
 
 export default QueriesTable;

@@ -1,0 +1,16 @@
+.savedMark{
+  transition: opacity 500ms;
+}
+
+:global {
+  :local(.savedMark){
+    &.entered{
+      color: red;
+      opacity: 1;
+    }
+    &.exited{
+      color: red;
+      opacity: 0;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, {createRef, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import * as $ from 'jquery';
+import PropTypes from "prop-types";
 // import css from './Modal.module.scss'
 
 const Modal = (props) => {
@@ -20,8 +21,6 @@ const Modal = (props) => {
   if (!props.show) {
     return null;
   }
-
-  //TODO Дописать proptypes
 
   const template = (
     <div className="modal fade" role="dialog" ref={modalRef}>
@@ -49,5 +48,16 @@ const Modal = (props) => {
     document.getElementById('modal-root')
   )
 };
+
+Modal.propTypes = {
+  show: PropTypes.bool,
+  closeHandler: PropTypes.func,
+  children: PropTypes.element,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
+};
+
 
 export default Modal;
