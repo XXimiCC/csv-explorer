@@ -1,33 +1,27 @@
-import React, {createRef, useEffect} from 'react';
-import * as $ from 'jquery';
+import React from 'react';
 import Modal from "../Modal/Modal";
-import JSONFormatter from 'json-formatter-js';
 import * as Proptypes from "prop-types";
+import JSONPrettify from "../JSONPrettify/JSONPrettify";
 
 const JSONShowerModal = ({json, ...props}) => {
-  const modalBodyRef = createRef();
+  let modalBody = null;
 
-  useEffect(() => {
-    if (!json) return;
+  if (!json) {
+    return null;
+  }
 
-    const $body = $(modalBodyRef.current);
+  try {
+    const data = JSON.parse(json);
 
-    try {
-      const jsonFormatter = new JSONFormatter(JSON.parse(json));
-
-      $body.html('');
-      $body.append(jsonFormatter.render());
-    } catch (e) {
-      $body.html('INVALID JSON');
-    }
-  }, [modalBodyRef, json]);
+    modalBody = <JSONPrettify data={data}/>;
+  } catch (e) {
+    modalBody = 'INVALID JSON';
+  }
 
   return (
     <Modal {...props}>
-      <div ref={modalBodyRef}>
-      </div>
+      {modalBody}
     </Modal>
-
   );
 };
 

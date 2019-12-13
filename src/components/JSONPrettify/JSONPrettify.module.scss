@@ -1,0 +1,36 @@
+.PrettifyRow{
+  font-family: Consolas, serif;
+
+  .key{
+    color: darkblue;
+  }
+  .string{
+    color: green;
+    white-space: pre;
+    word-wrap: break-word;
+  }
+  .number{
+    color: blue;
+  }
+  .boolean{
+    color: red;
+  }
+
+  button {
+
+    &.withChildren{
+      &:before{
+        content: '▶️ ';
+        font-weight: normal;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &.open{
+    >button:before{
+      content: '🔻 ';
+    }
+  }
+}
+
