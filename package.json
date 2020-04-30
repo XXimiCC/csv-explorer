@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "formik": "^2.0.7",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "json-formatter-js": "^2.2.1",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
